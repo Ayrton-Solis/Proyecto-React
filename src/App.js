@@ -1,7 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './Componentes/NavBar';
-import ItemListContainer from "./Componentes/ItemListContainer";
+import ItemListContainer from "./Componentes/ItemListContainer/ItemListContainer";
 
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer/>
+      <ItemListContainer mensaje={"Hola mundo!"}/>
     </>
   );
 }

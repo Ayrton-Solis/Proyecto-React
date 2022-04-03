@@ -1,6 +1,6 @@
 import React from "react";
-import carrito from "../Imagenes/carrito.png";
-import "../cartwidget.css"
+import carrito from "../CartWidget/carrito.png";
+import "../CartWidget/cartwidget.css";
 
 
 
@@ -12,5 +12,3 @@ export default function CartWidget() {
     </>
   );
 }
-
-
