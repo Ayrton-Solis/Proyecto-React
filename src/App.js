@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer mensaje={"Hola mundo!"}/>
+      <ItemListContainer />
     </>
   );
 }
