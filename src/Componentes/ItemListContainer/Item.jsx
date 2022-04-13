@@ -11,7 +11,7 @@ export default function Item({id, nombre, precio, img}) {
   return (
     <>
 <Card key={id} style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={img} />
+  <Card.Img variant="top" src={ 'https://picsum.photos/200' } />
   <Card.Body>
     <Card.Title>{nombre}</Card.Title>
     <Card.Text>

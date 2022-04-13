@@ -3,7 +3,7 @@ import {Button} from "react-bootstrap";
 
 export default function ItemCount({stock}) {
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     
     function adding() {
         if (count < stock) {
@@ -11,7 +11,7 @@ export default function ItemCount({stock}) {
         }
     }
     function subs() {
-        if (count > 0) {
+        if (count > 1) {
             setCount(count - 1);
         }
     }
@@ -21,13 +21,12 @@ export default function ItemCount({stock}) {
     
     return (
         <>
-            <Button onClick={subs} variant="danger">-</Button>
+            <Button disabled={count === 1} onClick={subs} variant="danger">-</Button>
             <p>{count}</p>
-            <Button onClick={adding} variant="success">+</Button>{' '}
+            <Button disabled={count === stock} onClick={adding} variant="success">+</Button>{' '}
             <Button onClick={onAdd} variant="primary">Agregar al carrito</Button>{' '}
         </>
     );
   }
-  
   
   
