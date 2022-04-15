@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import promesa from "../../promesas";
 import ItemDetail from "./ItemDetail";
 
 
@@ -12,7 +11,7 @@ export default function ItemDetailContainer(){
     const [Cargando, setCargando] = useState(true);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/1')
+        fetch(`https://fakestoreapi.com/products/`)
             .then(response => response.json())
             .then((result) => {
                 setTimeout(() => {
@@ -25,7 +24,8 @@ export default function ItemDetailContainer(){
             .finally(() => {
                 setCargando(false)
             })
-    });
+        
+});
 
 
 

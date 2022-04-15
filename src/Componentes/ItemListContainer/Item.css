@@ -1,3 +1,11 @@
-card{
+.carta{
+    display: flex;
+    flex-direction: column;
+}
+.card{
+    display: flex;
+    flex-direction: column;
     margin: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
 }
