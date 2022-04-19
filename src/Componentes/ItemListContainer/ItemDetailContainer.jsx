@@ -1,38 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import productos from "../../productos";
+import promesa from "../../promesas";
 import ItemDetail from "./ItemDetail";
 
 
 
 
 
-export default function ItemDetailContainer(){
+export default function ItemDetailContainer() {
 
-    const [Producto, setProducto] = useState([]);
-    const [Cargando, setCargando] = useState(true);
+    const [Productos, setProductos] = useState({});
+    const { id } = useParams;
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/`)
-            .then(response => response.json())
-            .then((result) => {
-                setTimeout(() => {
-                    setProducto(result);
-                }, 2000);
-            })
-            .catch(error => {
-                console.log('error', error);
-            })
-            .finally(() => {
-                setCargando(false)
-            })
-        
-});
+        promesa(3000, productos)
+            .then((resultado) => setProductos(resultado.find((Productos) => Productos.id == parseInt(id))))
+            .catch(error => console.log(error))
+    },[id]);
 
 
 
     return (
         <>
-            {Cargando ? (<h2>Cargando, profavor espere</h2>) : (<ItemDetail Producto={Producto}/>)}
+            {Productos && <ItemDetail id={Productos.id} nombre={Productos.nombre} precio={Productos.precio} descripcion={Productos.descripcion} img={Productos.img} />}
+
+            {!Productos && <h1>El producto no existe</h1>}
         </>
     )
-    
+
 }

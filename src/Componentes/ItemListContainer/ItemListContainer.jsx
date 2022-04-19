@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
+import productos from "../../productos";
+import promesa from "../../promesas";
 import "../ItemListContainer/ItemListContainer.css"
 import ItemList from "./ItemList";
 
 
 
 export default function ItemListContainer() {
-  const [Productos, setProductos] = useState ([]);
+  const [Item, setItem] = useState ([]);
 
   useEffect(() => {
-    setTimeout(() => {
-    fetch('https://fakestoreapi.com/products/')
-    .then(response => response.json())
-    .then(resultado => setProductos(resultado))
+    promesa(3000, productos)
+    .then(resultado => setItem(resultado))
     .catch(error => console.log(error))
-  },3000)})
+  })
   return (
     <>
-    <ItemList productos={Productos}/>
+    <ItemList productos={Item}/>
     </>
   );
 }
