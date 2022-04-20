@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav, Form, FormControl, Button } from "react-bootstrap";
 import CartWidget from "./CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 
 export default function NavBar() {
@@ -9,7 +10,7 @@ export default function NavBar() {
 <>
 <Navbar bg="light" expand="lg">
   <Container fluid>
-    <Navbar.Brand href="#">Tienda Solís</Navbar.Brand>
+    <Link to="/">Tienda Solís</Link>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav

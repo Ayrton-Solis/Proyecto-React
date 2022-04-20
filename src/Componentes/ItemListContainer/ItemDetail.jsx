@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "../ItemListContainer/ItemDetail.css"
 import {Card} from "react-bootstrap";
 import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 
 
 
@@ -9,7 +10,14 @@ import ItemCount from "./ItemCount";
 
 export default function ItemDetail({id, nombre, descripcion, precio, img}){
 
+  const [Numero, setNumero] = useState(1);
+  const [Cambiar, setCambiar] = useState(true);
 
+  const agregar = (count) => {
+    setNumero(count);
+    setCambiar(false);
+  }
+  console.log(Numero);
 
 
 
@@ -25,7 +33,7 @@ export default function ItemDetail({id, nombre, descripcion, precio, img}){
     <Card.Text>
         {descripcion}
     </Card.Text>
-    <ItemCount stock={10}/>
+    {Cambiar ? <ItemCount stock={10} agregar={agregar}/> : <Link to={'/cart'}>Ir al carrito</Link>}
   </Card.Body>
 </Card>   
         </>

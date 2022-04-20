@@ -15,8 +15,9 @@ export default function ItemDetailContainer() {
 
     useEffect(() => {
         promesa(3000, productos)
-            .then((resultado) => setProductos(resultado.find((Productos) => Productos.id == parseInt(id))))
+            .then((resultado) => setProductos(resultado.filter((Productos) => Productos.id === Number(id))))
             .catch(error => console.log(error))
+            console.log(Productos);
     },[id]);
 
 
