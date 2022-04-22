@@ -11,11 +11,11 @@ import ItemDetail from "./ItemDetail";
 export default function ItemDetailContainer() {
 
     const [Productos, setProductos] = useState({});
-    const { id } = useParams;
+    const { id } = useParams();
 
     useEffect(() => {
         promesa(3000, productos)
-            .then((resultado) => setProductos(resultado.filter((Productos) => Productos.id === Number(id))))
+            .then((resultado) => setProductos(resultado.find((Productos) => Productos.id === id)))
             .catch(error => console.log(error))
             console.log(Productos);
     },[id]);

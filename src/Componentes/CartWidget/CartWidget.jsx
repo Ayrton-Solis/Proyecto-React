@@ -4,11 +4,11 @@ import "../CartWidget/cartwidget.css";
 
 
 
-export default function CartWidget() {
+export default function CartWidget({ count }) {
     
   return (
     <>
-      <img src={carrito} alt="carritoDeCompras" width={60}/>
+      <img src={carrito} alt="carritoDeCompras" width={60}/> <>{count}</>
     </>
   );
 }
