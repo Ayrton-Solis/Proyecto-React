@@ -1,30 +1,41 @@
 import React, {createContext, useState} from "react";
+import productos from "../productos";
 
 
-export const Context = createContext();
+export const CartContext = createContext();
 
 
 const CartContextProvider = ({ children }) => {
 
-    const [Carrito, setCarrito] = useState([]);
+    const [Cart, setCart] = useState([]);
 
-    const AddCart = (item) => {
+    const AddToCart = (item) => {
+        console.log(item);
+        const indexProducto = Cart.findIndex((CartItem) => CartItem.id === item.id);
+        if(indexProducto !== -1) {
+            const newCart = [...Cart];
+            newCart[indexProducto].count = newCart[indexProducto].count + item.count;
+            setCart(newCart);
+        } else{
+            setCart([ ...Cart, item]);
+        }
+    };
+
+    const RemoveCart = (id) => {
+
+        setCart(Cart.filter((productos) => productos.id !== id));
 
     };
 
-    const RemoveCart = (item) => {
-
-    };
-
-    const Comprar = () => {
-
+    const BuyAll = () => {
+        setCart([]);
     };
 
     return (
 
-        <Context.Provider value={{Carrito, AddCart, RemoveCart, Comprar}}>
+        <CartContext.Provider value={{Cart, AddToCart, RemoveCart, BuyAll}}>
             {children}
-        </Context.Provider>
+        </CartContext.Provider>
 
     );
 

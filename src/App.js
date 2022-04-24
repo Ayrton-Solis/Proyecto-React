@@ -12,18 +12,20 @@ export default function App() {
 
   return (
     <>
-      <CartContextProvider>
-        <NavBar />
+      <BrowserRouter>
+        <CartContextProvider>
+          <NavBar />
 
-        <Routes>
+          <Routes>
 
-          <Route exact path="/" element={<ItemListContainer />} />
-          <Route exact path="/categoria/:id" element={<ItemListContainer />} />
-          <Route exact path="/Item/:id" element={<ItemDetailContainer />} />
-          <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/" element={<ItemListContainer />} />
+            <Route exact path="/categoria/:id" element={<ItemListContainer />} />
+            <Route exact path="/Item/:id" element={<ItemDetailContainer />} />
+            <Route exact path="/cart" element={<Cart />} />
 
-        </Routes>
-      </CartContextProvider>
+          </Routes>
+        </CartContextProvider>
+      </BrowserRouter>
     </>
   );
 }

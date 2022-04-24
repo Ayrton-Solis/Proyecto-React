@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 
 
-export default function ItemDetail({id, nombre, descripcion, precio, img}){
+export default function ItemDetail({Producto}){
 
   const [Numero, setNumero] = useState(1);
   const [Cambiar, setCambiar] = useState(true);
@@ -23,17 +23,17 @@ export default function ItemDetail({id, nombre, descripcion, precio, img}){
 
     return (
         <>
-<Card key={id} style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={ img } />
+<Card key={Producto.id} style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={ Producto.img } />
   <Card.Body>
-    <Card.Title>{nombre}</Card.Title>
+    <Card.Title>{Producto.nombre}</Card.Title>
     <Card.Text>
-    $ {precio}
+    $ {Producto.precio}
     </Card.Text>
     <Card.Text>
-        {descripcion}
+        {Producto.descripcion}
     </Card.Text>
-    {Cambiar ? <ItemCount stock={10} agregar={agregar}/> : <Link to={'/cart'}>Ir al carrito</Link>}
+    {Cambiar ? <ItemCount stock={10} agregar={agregar} Producto={Producto} /> : <Link to={'/cart'}>Ir al carrito</Link>}
   </Card.Body>
 </Card>   
         </>

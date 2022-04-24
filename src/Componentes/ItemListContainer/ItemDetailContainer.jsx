@@ -24,7 +24,7 @@ export default function ItemDetailContainer() {
 
     return (
         <>
-            {Productos && <ItemDetail id={Productos.id} nombre={Productos.nombre} precio={Productos.precio} descripcion={Productos.descripcion} img={Productos.img} />}
+            {Productos && <ItemDetail Producto={Productos} />}
 
             {!Productos && <h1>El producto no existe</h1>}
         </>

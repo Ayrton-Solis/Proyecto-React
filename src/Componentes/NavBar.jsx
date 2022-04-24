@@ -22,7 +22,7 @@ export default function NavBar() {
         <Nav.Link href="#action2">Productos</Nav.Link>
         <Nav.Link href="mailto:ayrtonsolis018@gmail.com">Contacto</Nav.Link>
       </Nav>
-      <CartWidget/>
+      <Link to="/cart"><CartWidget/></Link>
       <Form className="d-flex">
         <FormControl
           type="search"
