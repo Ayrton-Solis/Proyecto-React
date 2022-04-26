@@ -1,4 +1,5 @@
 import React from "react";
+import "../Componentes/navbar.css"
 import { Navbar, Container, Nav, Form, FormControl, Button } from "react-bootstrap";
 import CartWidget from "./CartWidget/CartWidget";
 import { Link } from "react-router-dom";
@@ -10,7 +11,7 @@ export default function NavBar() {
 <>
 <Navbar bg="light" expand="lg">
   <Container fluid>
-    <Link to="/">Tienda Solís</Link>
+    <Link className="link" to="/">Tienda Solís</Link>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -18,9 +19,11 @@ export default function NavBar() {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="#action1">Inicio</Nav.Link>
-        <Nav.Link href="#action2">Productos</Nav.Link>
-        <Nav.Link href="mailto:ayrtonsolis018@gmail.com">Contacto</Nav.Link>
+        <Link className="link" to="/categoria/Remeras">Remeras</Link>
+        <Link className="link" to="/categoria/Pantalones">Pantalones</Link>
+        <Link className="link" to="/categoria/Zapatillas">Zapatillas</Link>
+        <Link className="link" to="/categoria/Gorros">Gorros</Link>
+        <Nav.Link className="link" href="mailto:ayrtonsolis018@gmail.com">Contacto</Nav.Link>
       </Nav>
       <Link to="/cart"><CartWidget/></Link>
       <Form className="d-flex">

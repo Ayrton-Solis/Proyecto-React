@@ -19,7 +19,7 @@ export default function App() {
           <Routes>
 
             <Route exact path="/" element={<ItemListContainer />} />
-            <Route exact path="/categoria/:id" element={<ItemListContainer />} />
+            <Route exact path="/categoria/:categoryId" element={<ItemListContainer />} />
             <Route exact path="/Item/:id" element={<ItemDetailContainer />} />
             <Route exact path="/cart" element={<Cart />} />
 
