@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import productos from "../../productos";
-import mostrarProductos from "../../promesas";
 import "../ItemListContainer/ItemListContainer.css"
 import ItemList from "./ItemList";
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 
 
 export default function ItemListContainer() {
 
-  const [Item, setItem] = useState ([]);
-
-  const {categoryId} = useParams();
+  const [item, setItem] = useState([]);
   
-  console.log("por fuera" + productos, categoryId);
   useEffect(() => {
-    mostrarProductos(categoryId)
-    .then(resultado => setItem(resultado))
-    .catch(error => console.log(error))
-  }, [categoryId])
+    const db = getFirestore();
+
+    const referencia = collection(db, 'Productos');
+
+    getDocs(referencia).then((res) => {
+      
+      let item = [...res.docs];
+
+      item = item.map((item) => ({ id: item.id, ...item.data() }));
+
+      setItem(item);
+
+    })
+  });
+
   return (
     <>
-    <ItemList productos={Item}/>
+    <ItemList productos={item}/>
     </>
   );
 }
