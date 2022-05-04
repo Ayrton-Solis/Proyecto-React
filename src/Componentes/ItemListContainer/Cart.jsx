@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from "react-bootstrap";
 import { useContext } from 'react';
 import { CartContext } from "../CartContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -22,6 +23,7 @@ export default function Cart() {
         </Card.Body>
       </Card>
     ))}
-    <Button onClick={() => BuyAll()} variant="success">Success</Button>{' '}
+    <Link to='/Formulario'><Button onClick={() => BuyAll()} variant="success">Success</Button>{' '}</Link>
+    
     </>
 )}
