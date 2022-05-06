@@ -24,14 +24,14 @@ export default function ItemDetail({Producto}){
     return (
         <>
 <Card key={Producto.id} style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={ Producto.Img } />
+  <Card.Img variant="top" src={ Producto.img } />
   <Card.Body>
-    <Card.Title>{Producto.Titulo}</Card.Title>
+    <Card.Title>{Producto.nombre}</Card.Title>
     <Card.Text>
-    $ {Producto.Precio}
+    $ {Producto.precio}
     </Card.Text>
     <Card.Text>
-        {Producto.Descripcion}
+        {Producto.descripcion}
     </Card.Text>
     {Cambiar ? <ItemCount stock={10} agregar={agregar} Producto={Producto} /> : <Link to={'/cart'}>Ir al carrito</Link>}
   </Card.Body>

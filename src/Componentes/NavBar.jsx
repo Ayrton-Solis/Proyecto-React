@@ -21,6 +21,8 @@ export default function NavBar() {
       >
         <Link className="link" to="/categoria/Remeras">Remeras</Link>
         <Link className="link" to="/categoria/Pantalones">Pantalones</Link>
+        <Link className="link" to="/categoria/Zapatillas">Zapatillas</Link>
+        <Link className="link" to="/categoria/Gorro">Gorros</Link>
         <Nav.Link className="link" href="mailto:ayrtonsolis018@gmail.com">Contacto</Nav.Link>
       </Nav>
       <Link to="/cart"><CartWidget/></Link>
