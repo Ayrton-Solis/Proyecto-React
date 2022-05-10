@@ -28,7 +28,7 @@ const CartContextProvider = ({ children }) => {
     };
 
     const BuyAll = () => {
-        setCart([]);
+        alert('Compraste todo uwu');
     };
 
     return (
