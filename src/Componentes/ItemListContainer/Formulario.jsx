@@ -22,9 +22,7 @@ export default function Formulario() {
       items: Cart,
     };
 
-    addDoc(ventasRef, buyer).then(({ id }) => {
-      console.log(id);
-    })
+    addDoc(ventasRef, buyer).then(({ id }) => { id.JSON() })
   };
 
   useEffect(() => {
@@ -36,7 +34,7 @@ export default function Formulario() {
       <div><input type="text" value={name} onChange={(e) => { setName(e.currentTarget.value) }} /></div>
       <div><input type="text" value={email} onChange={(e) => { setEmail(e.currentTarget.value) }} /></div>
       <div><input type="text" value={phone} onChange={(e) => { setPhone(e.currentTarget.value) }} /></div>
-      <button onClick={() => {terminarCompra()}}>COMPRAR</button>
+      <button onClick={() => {terminarCompra()}}>COMPRAR </button>
     </>
   );
 }

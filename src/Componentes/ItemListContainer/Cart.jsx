@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from "react-bootstrap";
 import { useContext } from 'react';
@@ -9,9 +9,8 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
 
-  const { Cart, RemoveCart, BuyAll } = useContext(CartContext);
+  const { Cart, Total, RemoveCart, BuyAll } = useContext(CartContext);
 
-  console.log(Cart);
 
   return (
     <>
@@ -25,6 +24,7 @@ export default function Cart() {
         </Card.Body>
       </Card>
     ))}
+    <div>El precio total es de: {Total}</div>
     <Link to='/Formulario'><Button onClick={() => BuyAll()} variant="success">Success</Button>{' '}</Link>
     
     </>

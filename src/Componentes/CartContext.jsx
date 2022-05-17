@@ -1,5 +1,4 @@
 import React, {createContext, useState} from "react";
-import productos from "../productos";
 
 
 export const CartContext = createContext();
@@ -8,6 +7,14 @@ export const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
 
     const [Cart, setCart] = useState([]);
+    let [Total, setTotal] = useState(0);
+
+    const SumarTotal = (Cart) => {
+        Cart.forEach(Producto => {
+            setTotal(Total += Producto.Precio);
+            console.log(Total);
+        });
+    };
 
     const AddToCart = (item) => {
         console.log(item);
@@ -16,8 +23,11 @@ const CartContextProvider = ({ children }) => {
             const newCart = [...Cart];
             newCart[indexProducto].count = newCart[indexProducto].count + item.count;
             setCart(newCart);
+            SumarTotal(Cart);
         } else{
             setCart([ ...Cart, item]);
+            SumarTotal(Cart);
+            console.log(Total);
         }
     };
 
@@ -33,7 +43,7 @@ const CartContextProvider = ({ children }) => {
 
     return (
 
-        <CartContext.Provider value={{Cart, AddToCart, RemoveCart, BuyAll}}>
+        <CartContext.Provider value={{Cart, Total, AddToCart, RemoveCart, BuyAll}}>
             {children}
         </CartContext.Provider>
 
