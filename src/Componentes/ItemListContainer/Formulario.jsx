@@ -1,4 +1,4 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../CartContext";
 
@@ -21,11 +21,13 @@ export default function Formulario() {
     let buyer = {
       buyer: { name, phone, email },
       items: Cart,
+      fecha: serverTimestamp(),
     };
 
     addDoc(ventasRef, buyer).then(({ id }) => { 
       setOrden(id)
       console.log(id);
+      console.log(buyer);
     })
   };
 
@@ -39,7 +41,7 @@ export default function Formulario() {
       <div><input type="text" value={email} onChange={(e) => { setEmail(e.currentTarget.value) }} /></div>
       <div><input type="text" value={phone} onChange={(e) => { setPhone(e.currentTarget.value) }} /></div>
       <button onClick={() => {terminarCompra()}}>COMPRAR</button>
-      {orden ? <div>FELICIDADES tu orden de compra es: {orden}</div> : <div>Compra ya y seras 5% mas feliz</div>}
+      {orden ? <div>FELICIDADES!!!! tu orden de compra es: {orden}</div> : <div>Compra ya y seras 5% mas feliz</div>}
     </>
   );
 }
