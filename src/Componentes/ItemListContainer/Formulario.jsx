@@ -8,6 +8,7 @@ export default function Formulario() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [orden, setOrden] = useState();
 
   const { Cart } = useContext(CartContext);
 
@@ -22,7 +23,10 @@ export default function Formulario() {
       items: Cart,
     };
 
-    addDoc(ventasRef, buyer).then(({ id }) => { id.JSON() })
+    addDoc(ventasRef, buyer).then(({ id }) => { 
+      setOrden(id)
+      console.log(id);
+    })
   };
 
   useEffect(() => {
@@ -34,7 +38,8 @@ export default function Formulario() {
       <div><input type="text" value={name} onChange={(e) => { setName(e.currentTarget.value) }} /></div>
       <div><input type="text" value={email} onChange={(e) => { setEmail(e.currentTarget.value) }} /></div>
       <div><input type="text" value={phone} onChange={(e) => { setPhone(e.currentTarget.value) }} /></div>
-      <button onClick={() => {terminarCompra()}}>COMPRAR </button>
+      <button onClick={() => {terminarCompra()}}>COMPRAR</button>
+      {orden ? <div>FELICIDADES tu orden de compra es: {orden}</div> : <div>Compra ya y seras 5% mas feliz</div>}
     </>
   );
 }
