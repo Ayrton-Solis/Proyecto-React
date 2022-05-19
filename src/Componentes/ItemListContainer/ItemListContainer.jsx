@@ -14,7 +14,7 @@ export default function ItemListContainer() {
   useEffect(() => {
     const db = getFirestore();
 
-    const referencia = categoryId ? query(collection(db, 'Productos'), where('CategoryId', '==', categoryId)) : collection(db, 'Productos');
+    const referencia = categoryId ? query(collection(db, 'Producto'), where('categoryId', '==', categoryId)) : collection(db, 'Producto');
 
     getDocs(referencia).then((res) => {
       

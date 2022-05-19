@@ -7,12 +7,15 @@ export const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
 
     const [Cart, setCart] = useState([]);
-    let [Total, setTotal] = useState(0);
+    let [Total, setTotal] = useState();
 
     const SumarTotal = (Cart) => {
-        Cart.forEach(Producto => {
-            setTotal(Total += Producto.Precio);
-            console.log(Total);
+        Cart.forEach(Cart => {
+            let acumulador = 0;
+            acumulador += Cart.Precio
+            acumulador = acumulador * Cart.count;
+            setTotal(acumulador);
+            console.log(acumulador);
         });
     };
 
@@ -27,7 +30,6 @@ const CartContextProvider = ({ children }) => {
         } else{
             setCart([ ...Cart, item]);
             SumarTotal(Cart);
-            console.log(Total);
         }
     };
 

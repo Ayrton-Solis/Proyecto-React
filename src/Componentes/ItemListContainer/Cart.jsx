@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from "react-bootstrap";
 import { useContext } from 'react';
@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
 
+  
   const { Cart, Total, RemoveCart, BuyAll } = useContext(CartContext);
-
 
   return (
     <>

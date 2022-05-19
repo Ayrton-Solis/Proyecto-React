@@ -9,8 +9,9 @@ export default function Formulario() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [orden, setOrden] = useState();
+  
 
-  const { Cart } = useContext(CartContext);
+  const { Cart, Total } = useContext(CartContext);
 
   function terminarCompra() {
 
@@ -22,6 +23,7 @@ export default function Formulario() {
       buyer: { name, phone, email },
       items: Cart,
       fecha: serverTimestamp(),
+      
     };
 
     addDoc(ventasRef, buyer).then(({ id }) => { 
@@ -37,9 +39,9 @@ export default function Formulario() {
 
   return (
     <>
-      <div><input type="text" value={name} onChange={(e) => { setName(e.currentTarget.value) }} /></div>
-      <div><input type="text" value={email} onChange={(e) => { setEmail(e.currentTarget.value) }} /></div>
-      <div><input type="text" value={phone} onChange={(e) => { setPhone(e.currentTarget.value) }} /></div>
+      <div><input type="text" placeholder="Nombre" value={name} onChange={(e) => { setName(e.currentTarget.value) }} /></div>
+      <div><input type="text" placeholder="Email" value={email} onChange={(e) => { setEmail(e.currentTarget.value) }} /></div>
+      <div><input type="text" placeholder="Telefono" value={phone} onChange={(e) => { setPhone(e.currentTarget.value) }} /></div>
       <button onClick={() => {terminarCompra()}}>COMPRAR</button>
       {orden ? <div>FELICIDADES!!!! tu orden de compra es: {orden}</div> : <div>Compra ya y seras 5% mas feliz</div>}
     </>

@@ -24,7 +24,7 @@ export default function ItemDetail({Producto}){
     return (
         <>
 <Card key={Producto.id} style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={ Producto.Img } />
+  <Card.Img variant="top" src={Producto.Img} />
   <Card.Body>
     <Card.Title>{Producto.Titulo}</Card.Title>
     <Card.Text>
@@ -39,4 +39,4 @@ export default function ItemDetail({Producto}){
         </>
     )
     
-}
+};
